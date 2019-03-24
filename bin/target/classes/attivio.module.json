@@ -1,0 +1,9 @@
+{
+  "name":"satest",
+  "moduleVersion":"${version}",
+  "description":"A description of my module",
+  "initClassName":"com.attivio.sa.satest.ModuleInit",
+  "components": [
+    "com.attivio.sa.satest.SampleFieldValueCreatingTransformer"
+  ]
+}

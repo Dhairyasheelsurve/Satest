@@ -1,0 +1,8 @@
+com\attivio\sa\satest\ModuleInit.class
+com\attivio\sa\satest\SampleResponseTransformer.class
+com\attivio\sa\satest\SampleFieldValueCreatingTransformer.class
+com\attivio\sa\satest\SampleDocumentModifyingTransformer.class
+com\attivio\sa\satest\SampleQueryRewriteTransformer$SampleQueryTraverser.class
+com\attivio\sa\satest\SampleQueryRewriteTransformer.class
+com\attivio\sa\satest\SampleQueryTransformer.class
+com\attivio\sa\satest\SampleQueryRewriteTransformer$1.class

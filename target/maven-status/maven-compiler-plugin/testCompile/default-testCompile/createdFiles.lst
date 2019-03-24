@@ -1,0 +1,6 @@
+com\attivio\sa\satest\GeocodeLocationTest.class
+com\attivio\sa\satest\SampleDocumentModifyingTransformerTest.class
+com\attivio\sa\satest\SampleFieldValueCreatingTransformerTest.class
+com\attivio\sa\satest\SampleQueryRewriterTransformerTest.class
+com\attivio\sa\satest\SampleResponseTransformerTest.class
+com\attivio\sa\satest\SampleQueryTransformerTest.class
