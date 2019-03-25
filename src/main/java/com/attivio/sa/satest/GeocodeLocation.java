@@ -5,6 +5,8 @@ package com.attivio.sa.satest;
 
 import java.io.*;
 import java.net.*;
+import java.util.Properties;
+
 import com.attivio.sdk.*;
 import com.attivio.sdk.ingest.IngestDocument;
 import com.attivio.sdk.schema.FieldNames;
@@ -21,9 +23,8 @@ import com.google.gson.*;
 public class GeocodeLocation implements DocumentModifyingTransformer {
 
   private String field = FieldNames.TITLE;
-  private String value = "My new title";  
-  private final String key = "AIzaSyDMD_7PBpZfVlnmKHo3nhb1JfOUVdNYo_M";
-  private final String geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+  private String value = "My new title"; 
+  private String propname = "config.properties";
   
   @Override
   public boolean processDocument(IngestDocument doc) throws AttivioException {
@@ -33,15 +34,24 @@ public class GeocodeLocation implements DocumentModifyingTransformer {
     
 	String location = "";
 	String fetchLocationDetailsURL  = "";
+	String apiKey = "";
+	String geoCodeFixUrl = "";
     URL url = null;
 	URLConnection request = null;
-    
-    
+	InputStream input = null;
+
 	try {
     if(doc.getField("location").getValue(0) != null) {
 	    location = doc.getField("location").getValue(0).toString().replaceAll(" ", "");	
+	    
+	    Properties prop = new Properties();
+		input = getClass().getClassLoader().getResourceAsStream(propname);
+		prop.load(input);
+		apiKey = prop.getProperty("key");
+		geoCodeFixUrl = prop.getProperty("geocodeUrl");
+	    
 	    /*Url to fetch latitude and longitude of location*/
-	    fetchLocationDetailsURL = geocodeUrl+location+"&key="+key; 
+	    fetchLocationDetailsURL = geoCodeFixUrl+location+"&key="+apiKey; 
 	    url = new URL(fetchLocationDetailsURL);
 		request = url.openConnection();
 		request.connect();
